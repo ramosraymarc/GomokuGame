@@ -29,7 +29,8 @@ namespace GomokuGame.Tests
         [Test]
         public void ShouldFailWhenPlacingStoneWithoutCreatedBoard()
         {
-            var response = _gameService.PlaceStone(1, 1, 1).Result;
+            var board = new GameService();
+            var response = board.PlaceStone(1, 1, 1).Result;
 
             Assert.That(response, Is.Not.Null);
             Assert.That(response.Message, Is.EqualTo(BoardConstants.NoBoardCreated));
